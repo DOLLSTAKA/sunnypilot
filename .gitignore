@@ -84,3 +84,28 @@ build/
 
 poetry.toml
 Pipfile
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# scons / C/C++ build files
+build/
+*.o
+*.so
+*.a
+*.dylib
+*.exe
+
+# Log files
+*.log
+
+# VS / IDE / Windows
+*.sln
+*.vcxproj*
+.idea/
+.vscode/
+
+# Mac
+.DS_Store
