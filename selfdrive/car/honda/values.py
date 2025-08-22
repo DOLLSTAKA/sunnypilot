@@ -223,6 +223,14 @@ class CAR(Platforms):
     dbc_dict('honda_fit_ex_2018_can_generated', 'acura_ilx_2016_nidec'),
     flags=HondaFlags.NIDEC_ALT_SCM_MESSAGES,
   )
+  # add s dollstaka 20250821
+  HONDA_STEPWGN = HondaNidecPlatformConfig(
+    [HondaCarDocs("Honda Stepwgn 2020", min_steer_speed=12. * CV.MPH_TO_MS)],
+    CarSpecs(mass=1820, wheelbase=2.89, steerRatio=13.06, centerToFrontRatio=0.39, tireStiffnessFactor=0.75),  # mostly copied from FIT
+    radar_dbc_dict('honda_fit_ex_2018_can_generated'),
+    flags=HondaFlags.NIDEC_ALT_SCM_MESSAGES,
+  )
+  #add e dollstaka 20250821
   HONDA_HRV = HondaNidecPlatformConfig(
     [HondaCarDocs("Honda HR-V 2019-22", min_steer_speed=12. * CV.MPH_TO_MS)],
     HONDA_HRV_3G.specs,
