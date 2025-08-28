@@ -69,6 +69,10 @@ def get_can_messages(CP, gearbox_msg):
     pass
   elif CP.carFingerprint in (CAR.HONDA_ODYSSEY_CHN, CAR.HONDA_FREED, CAR.HONDA_HRV):
     pass
+#add s dollstaka 20250828
+  elif CP.carFingerprint in (CAR.HONDA_STEPWGN):
+    pass
+#add e dollstaka 20250828
   else:
     messages.append(("DOORS_STATUS", 3))
 
