@@ -298,29 +298,31 @@ class CarController(CarControllerBase):
           can_sends.extend(hondacan.create_acc_commands(self.packer, self.CAN, CC.enabled and CS.out.cruiseState.enabled, CC.longActive, self.accel, self.gas,
                                                         self.stopping_counter, self.CP.carFingerprint))
         else:
-          apply_brake = clip(self.brake_last - wind_brake, 0.0, 1.0)
-          apply_brake = int(clip(apply_brake * self.params.NIDEC_BRAKE_MAX, 0, self.params.NIDEC_BRAKE_MAX - 1))
-          pump_on, self.last_pump_ts = brake_pump_hysteresis(apply_brake, self.apply_brake_last, self.last_pump_ts, ts)
-
-          pcm_override = True
-          can_sends.append(hondacan.create_brake_command(self.packer, self.CAN, apply_brake, pump_on,
-                                                         pcm_override, pcm_cancel_cmd, fcw_display,
-                                                         self.CP.carFingerprint, CS.stock_brake))
-          self.apply_brake_last = apply_brake
-          self.brake = apply_brake / self.params.NIDEC_BRAKE_MAX
-
-          if self.CP.enableGasInterceptorDEPRECATED:
-            # way too aggressive at low speed without this
-            gas_mult = interp(CS.out.vEgo, [0., 10.], [0.4, 1.0])
-            # send exactly zero if apply_gas is zero. Interceptor will send the max between read value and apply_gas.
-            # This prevents unexpected pedal range rescaling
-            # Sending non-zero gas when OP is not enabled will cause the PCM not to respond to throttle as expected
-            # when you do enable.
-            if CC.longActive:
-              self.gas = clip(gas_mult * (gas - brake + wind_brake * 3 / 4), 0., 1.)
-            else:
-              self.gas = 0.0
-            can_sends.append(create_gas_interceptor_command(self.packer, self.gas, self.frame // 2))
+#fix s dollstaka acc_off
+#          apply_brake = clip(self.brake_last - wind_brake, 0.0, 1.0)
+#          apply_brake = int(clip(apply_brake * self.params.NIDEC_BRAKE_MAX, 0, self.params.NIDEC_BRAKE_MAX - 1))
+#          pump_on, self.last_pump_ts = brake_pump_hysteresis(apply_brake, self.apply_brake_last, self.last_pump_ts, ts)
+#
+#          pcm_override = True
+#          can_sends.append(hondacan.create_brake_command(self.packer, self.CAN, apply_brake, pump_on,
+#                                                         pcm_override, pcm_cancel_cmd, fcw_display,
+#                                                         self.CP.carFingerprint, CS.stock_brake))
+#          self.apply_brake_last = apply_brake
+#          self.brake = apply_brake / self.params.NIDEC_BRAKE_MAX
+#
+#          if self.CP.enableGasInterceptorDEPRECATED:
+#            # way too aggressive at low speed without this
+#            gas_mult = interp(CS.out.vEgo, [0., 10.], [0.4, 1.0])
+#            # send exactly zero if apply_gas is zero. Interceptor will send the max between read value and apply_gas.
+#            # This prevents unexpected pedal range rescaling
+#            # Sending non-zero gas when OP is not enabled will cause the PCM not to respond to throttle as expected
+#            # when you do enable.
+#            if CC.longActive:
+#              self.gas = clip(gas_mult * (gas - brake + wind_brake * 3 / 4), 0., 1.)
+#            else:
+#              self.gas = 0.0
+#            can_sends.append(create_gas_interceptor_command(self.packer, self.gas, self.frame // 2))
+#fix e dollstaka acc_off
 
     # Send dashboard UI commands.
     if self.frame % 10 == 0:
