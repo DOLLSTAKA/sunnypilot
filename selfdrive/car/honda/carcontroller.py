@@ -297,8 +297,8 @@ class CarController(CarControllerBase):
           self.stopping_counter = self.stopping_counter + 1 if stopping else 0
           can_sends.extend(hondacan.create_acc_commands(self.packer, self.CAN, CC.enabled and CS.out.cruiseState.enabled, CC.longActive, self.accel, self.gas,
                                                         self.stopping_counter, self.CP.carFingerprint))
-        else:
 #fix s dollstaka acc_off
+#        else:
 #          apply_brake = clip(self.brake_last - wind_brake, 0.0, 1.0)
 #          apply_brake = int(clip(apply_brake * self.params.NIDEC_BRAKE_MAX, 0, self.params.NIDEC_BRAKE_MAX - 1))
 #          pump_on, self.last_pump_ts = brake_pump_hysteresis(apply_brake, self.apply_brake_last, self.last_pump_ts, ts)
