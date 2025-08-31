@@ -58,11 +58,15 @@ class CarInterface(CarInterfaceBase):
       ret.safetyConfigs = [get_safety_config(car.CarParams.SafetyModel.hondaNidec)]
       ret.enableGasInterceptorDEPRECATED = 0x201 in fingerprint[CAN.pt]
       #fix s dollstaka acc_off
-      ret.openpilotLongitudinalControl = True
-      ret.openpilotLongitudinalControl = False  # Å© Ç±Ç±Ç‡ False Ç…
-      #fix e dollstaka acc_off
+      #ret.openpilotLongitudinalControl = True
 
-      ret.pcmCruise = not ret.enableGasInterceptorDEPRECATED
+      #ret.pcmCruise = not ret.enableGasInterceptorDEPRECATED
+      ret.openpilotLongitudinalControl = False  # OP ècêßå‰ OFF
+      ret.pcmCruise = True                        # èÉê≥ ACC ON
+      ret.radarUnavailable = False                # ACC Ç™Ç†ÇÈÇ±Ç∆ÇímÇÁÇπÇÈ
+      ret.experimentalLongitudinalAvailable = False
+      ret.customStockLongAvailable = True         # NIDEC ÇÕÇ±ÇÍÇ True Ç…ÇµÇƒÇ®Ç≠
+      #fix e dollstaka acc_off
 
     if candidate == CAR.HONDA_CRV_5G:
       ret.enableBsm = 0x12f8bfa7 in fingerprint[CAN.radar]
