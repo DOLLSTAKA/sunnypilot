@@ -541,32 +541,32 @@ FW_VERSIONS = {
 # add s dollstaka 20250821
   CAR.HONDA_STEPWGN: {
     (Ecu.gateway, 0x18daeff1, None): [
-      b'38897-TAD-J020\x00\x00',
-      b'\x0cM1662677\x00\x00\x00\x00                  ',
+        b'38897-TAD-J020\x00\x00',
+        b'\x0cM1662677\x00\x00\x00\x00                  ',
     ],
     (Ecu.fwdRadar, 0x18dab0f1, None): [
-      b'36161-TAD-J010\x00\x00',
-      b'\x0e  ADL411720401\x00\x00',
+        b'36161-TAD-J010\x00\x00',
+        b'\x0e  ADL411720401\x00\x00',
     ],
     (Ecu.eps, 0x18da30f1, None): [
-      b'39990-TAD-N010\x00\x00',
-      b'\nADS2118208                    ',
+        b'39990-TAD-N010\x00\x00',
+        b'\nADS2118208                    ',
     ],
     (Ecu.vsa, 0x18da28f1, None): [
-      b'57114-TAD-J040\x00\x00',
-      b'\x0b11433435201\x00\x00\x00...',
+        b'57114-TAD-J040\x00\x00',
+        b'\x0b11433435201\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
     (Ecu.combinationMeter, 0x18da60f1, None): [
-      b'78109-TAD-J230\x00\x00',
-      b'\x18M1790210\x00\x00\x00...',
+        b'78109-TAD-J230\x00\x00',
+        b'\x18M1790210\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
     (Ecu.srs, 0x18da53f1, None): [
-      b'77959-TAD-J210\x00\x00',
-      b'\x0bC2Y70097B1/\x00\x00...',
+        b'77959-TAD-J210\x00\x00',
+        b'\x0bC2Y70097B1/\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
     (Ecu.shiftByWire, 0x18da0bf1, None): [
-      b'54008-TAD-9820\x00\x00',
-      b'\x1214212611481A100590\x00\x00...',
+        b'54008-TAD-9820\x00\x00',
+        b'\x1214212611481A100590\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
   },
 # add e dollstaka 20250821
