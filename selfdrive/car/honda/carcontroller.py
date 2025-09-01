@@ -301,6 +301,21 @@ class CarController(CarControllerBase):
 #fix s dollstaka acc_off
           self.gas = 0.0
           self.brake = 0.0
+          pcm_override=False
+          # ダミーのブレーキコマンドを送って CAN を維持
+          can_sends.append(
+            hondacan.create_brake_command(
+              self.packer,
+              self.CAN,
+              0,                # apply_brake = 0
+              0,                # pump_off
+              pcm_override,     # overrideしない
+              False,            # pcm_cancel_cmd
+              0,                # fcw_display
+              self.CP.carFingerprint,
+              CS.stock_brake,
+            )
+          )
 #          apply_brake = clip(self.brake_last - wind_brake, 0.0, 1.0)
 #          apply_brake = int(clip(apply_brake * self.params.NIDEC_BRAKE_MAX, 0, self.params.NIDEC_BRAKE_MAX - 1))
 #          pump_on, self.last_pump_ts = brake_pump_hysteresis(apply_brake, self.apply_brake_last, self.last_pump_ts, ts)
