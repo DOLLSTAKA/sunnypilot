@@ -47,12 +47,8 @@ class CarInterface(CarInterfaceBase):
       # WARNING: THIS DISABLES AEB!
       # If Bosch radarless, this blocks ACC messages from the camera
       ret.experimentalLongitudinalAvailable = True
-      #fix s dollstaka acc_off
-      #ret.openpilotLongitudinalControl = experimental_long
-      #ret.pcmCruise = not ret.openpilotLongitudinalControl
-      ret.openpilotLongitudinalControl = False  # © ‚±‚±‚ğ False ‚ÉŒÅ’è
-      ret.pcmCruise = True  # ACC ‚Íƒ³‚É”C‚¹‚é
-      #fix e dollstaka acc_off
+      ret.openpilotLongitudinalControl = experimental_long
+      ret.pcmCruise = not ret.openpilotLongitudinalControl
       ret.customStockLongAvailable = True
     else:
       ret.safetyConfigs = [get_safety_config(car.CarParams.SafetyModel.hondaNidec)]
@@ -63,9 +59,9 @@ class CarInterface(CarInterfaceBase):
       #ret.pcmCruise = not ret.enableGasInterceptorDEPRECATED
       ret.openpilotLongitudinalControl = False  # OP c§Œä OFF
       ret.pcmCruise = True                        # ƒ³ ACC ON
-      ret.radarUnavailable = False                # ACC ‚ª‚ ‚é‚±‚Æ‚ğ’m‚ç‚¹‚é
-      ret.experimentalLongitudinalAvailable = False
-      ret.customStockLongAvailable = True         # NIDEC ‚Í‚±‚ê‚ğ True ‚É‚µ‚Ä‚¨‚­
+      #ret.radarUnavailable = False                # ACC ‚ª‚ ‚é‚±‚Æ‚ğ’m‚ç‚¹‚é
+      #ret.experimentalLongitudinalAvailable = False
+      #ret.customStockLongAvailable = True         # NIDEC ‚Í‚±‚ê‚ğ True ‚É‚µ‚Ä‚¨‚­
       #fix e dollstaka acc_off
 
     if candidate == CAR.HONDA_CRV_5G:
