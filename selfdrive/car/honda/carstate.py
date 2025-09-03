@@ -143,7 +143,8 @@ class CarState(CarStateBase):
       ret.doorOpen = bool(cp.vl["SCM_BUTTONS"]["DRIVERS_DOOR_OPEN"])
 #add s dollstaka 20250828
     elif self.CP.carFingerprint in (CAR.HONDA_STEPWGN):
-      ret.doorOpen = bool(cp.vl["SCM_BUTTONS"]["DRIVERS_DOOR_OPEN"])
+      #ret.doorOpen = bool(cp.vl["SCM_BUTTONS"]["DRIVERS_DOOR_OPEN"])
+      ret.doorOpen = bool(cp.vl["SCM_BUTTONS"].get("DRIVERS_DOOR_OPEN", 0))
 #add e dollstaka 20250828
     else:
       ret.doorOpen = any([cp.vl["DOORS_STATUS"]["DOOR_OPEN_FL"], cp.vl["DOORS_STATUS"]["DOOR_OPEN_FR"],
