@@ -51,6 +51,12 @@ def create_brake_command(packer, CAN, apply_brake, pump_on, pcm_override, pcm_ca
   brakelights = apply_brake > 0
   brake_rq = apply_brake > 0
   pcm_fault_cmd = False
+  
+  #fix s dollstaka acc_off
+  if car_fingerprint not in HONDA_BOSCH:
+    return []   # Nidec では何も返さない（送信しない）
+  #fix e dollstaka acc_off
+
 
   values = {
     "CRUISE_OVERRIDE": pcm_override,
@@ -79,6 +85,11 @@ def create_brake_command(packer, CAN, apply_brake, pump_on, pcm_override, pcm_ca
 def create_acc_commands(packer, CAN, enabled, active, accel, gas, stopping_counter, car_fingerprint):
   commands = []
   min_gas_accel = CarControllerParams.BOSCH_GAS_LOOKUP_BP[0]
+  
+  #fix s dollstaka acc_off
+  if car_fingerprint not in HONDA_BOSCH:
+    return []   # Nidec では何も返さない（送信しない）
+  #fix e dollstaka acc_off
 
   control_on = 5 if enabled else 0
   gas_command = gas if active and accel > min_gas_accel else -30000

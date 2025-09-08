@@ -59,9 +59,9 @@ class CarInterface(CarInterfaceBase):
       #ret.pcmCruise = not ret.enableGasInterceptorDEPRECATED
       ret.openpilotLongitudinalControl = False  # OP c§Œä OFF
       ret.pcmCruise = True                        # ƒ³ ACC ON
-      #ret.radarUnavailable = False                # ACC ‚ª‚ ‚é‚±‚Æ‚ğ’m‚ç‚¹‚é
-      #ret.experimentalLongitudinalAvailable = False
-      #ret.customStockLongAvailable = True         # NIDEC ‚Í‚±‚ê‚ğ True ‚É‚µ‚Ä‚¨‚­
+      ret.radarUnavailable = False                # ACC ‚ª‚ ‚é‚±‚Æ‚ğ’m‚ç‚¹‚é
+      ret.experimentalLongitudinalAvailable = False
+      ret.customStockLongAvailable = True         # NIDEC ‚Í‚±‚ê‚ğ True ‚É‚µ‚Ä‚¨‚­
       #fix e dollstaka acc_off
 
     if candidate == CAR.HONDA_CRV_5G:
